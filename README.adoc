@@ -14,15 +14,17 @@ Usage
 Require it in your project:
 
 [source, bash]
-composer require ciarand\quick-n-dirty-router dev-master
+composer require 'ciarand\quick-n-dirty-router' 'dev-master'
 
 Move all your files into a handlers dir:
 
 [source, bash]
 ----
-for file in "$(find . -name '*.php')"; do
-    mv "$file" "../handlers/$file"
-end
+# assuming you're in the webroot
+mkdir ../handlers/
+find . -name '*.php' | while read file; do
+    echo mv "$file" "../handlers/$file";
+done;
 ----
 
 Put this in an `index.php` file in your web root:
