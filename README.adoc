@@ -1,0 +1,59 @@
+Quick-n-dirty PHP router
+========================
+
+[quote]
+A *transitionary* router to help upgrading an old PHP codebase to a more modern
+set of standards.
+
+More information is available
+http://ciarand.me/posts/refactoring-php-part-1/[on my blog].
+
+Usage
+-----
+
+Require it in your project:
+
+[source, bash]
+composer require ciarand\quick-n-dirty-router dev-master
+
+Move all your files into a handlers dir:
+
+[source, bash]
+----
+for file in "$(find . -name '*.php')"; do
+    mv "$file" "../handlers/$file"
+end
+----
+
+Put this in an `index.php` file in your web root:
+
+[source, php]
+----
+<?php // index.php
+
+require "vendor/autoload.php";
+
+use RestlessCo\Router;
+
+// where you keep your scripts (outside of the public web dir)
+$handler_dir = __DIR__ "/../handler";
+
+// the script you'd like to handle 404s with
+$missing_script = $handler_dir . "/404.php";
+
+$requested_path = $handler_dir . "/" . Router::scriptForEnv($_SERVER);
+
+return require (file_exists($requested_path))
+    ? $requested_path
+    : $missing_script;
+----
+
+Tests
+-----
+
+[source, bash]
+vendor/bin/phpunit
+
+License
+-------
+MIT, full text is in the link:LICENSE[LICENSE file].
