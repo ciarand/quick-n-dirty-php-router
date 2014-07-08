@@ -23,7 +23,7 @@ Move all your files into a handlers dir:
 # assuming you're in the webroot
 mkdir ../handlers/
 find . -name '*.php' | while read file; do
-    echo mv "$file" "../handlers/$file";
+    mv "$file" "../handlers/$file";
 done;
 ----
 
