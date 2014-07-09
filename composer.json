@@ -9,7 +9,7 @@
         "email": "code@ciarand.me",
         "homepage": "http://ciarand.me",
         "role": "Developer"
-    ],
+    }],
     "support": {
         "issues": "https://github.com/ciarand/quick-n-dirty-php-router/issues"
     },
