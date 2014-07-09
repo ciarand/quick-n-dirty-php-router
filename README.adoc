@@ -5,6 +5,10 @@ Quick-n-dirty PHP router
 A *transitionary* router to help upgrading an old PHP codebase to a more modern
 set of standards.
 
+image:http://img.shields.io/travis/ciarand/quick-n-dirty-php-router/master.svg?style=flat[
+    "Build Status",
+    link="https://travis-ci.org/ciarand/quick-n-dirty-php-router.svg"]
+
 More information is available
 http://ciarand.me/posts/refactoring-php-part-1/[on my blog].
 
