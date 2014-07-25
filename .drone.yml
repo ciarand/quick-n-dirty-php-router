@@ -1,0 +1,4 @@
+image: php5.4
+script:
+  - composer install
+  - ./vendor/bin/phpunit
